@@ -21,12 +21,8 @@ jobs:
           ./scripts/feeds install -a
           wget https://raw.githubusercontent.com/felix-fly/openwrt-k2p/master/.config
           make defconfig
-      - name: Make download
-        run: |
           make download -j8
           find dl -size -1024c -exec rm -f {} \;
-      - name: Compile firmware
-        run: |
           make -j$(nproc) || make -j1 V=s
           echo "======================="
           echo "Space usage:"
@@ -36,10 +32,9 @@ jobs:
           du -h --max-depth=1 ./ --exclude=build_dir --exclude=bin
           du -h --max-depth=1 ./build_dir
           du -h --max-depth=1 ./bin
-      - name: Prepare artifact
-        run: find ./bin/targets/ -type d -name "packages" | xargs rm -rf {}
+          find ./bin/targets/ -type d -name "packages" | xargs rm -rf {}
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
           name: OpenWrt firmware
-          path: ./bin/targets/
+          path: ./lede/bin/targets/
