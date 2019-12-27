@@ -19,14 +19,14 @@ jobs:
           cd lede
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-          wget https://raw.githubusercontent.com/felix-fly/openwrt-k2p/master/.config
+          wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/mi3pro.config -O .config
           make defconfig
           make download -j8
           find dl -size -1024c -exec rm -f {} \;
           make -j$(nproc) || make -j1 V=s
           cd ..
           mkdir bin
-          mv lede/bin/targets/ramips/mt7621/*phicomm_k2p* bin
+          mv lede/bin/targets/ramips/mt7621/*xiaomi_mir3p* bin
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
