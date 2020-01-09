@@ -1,7 +1,7 @@
 on:
   push:
     branches: 
-      - master
+      - mi3pro
 
 jobs:
   build:
