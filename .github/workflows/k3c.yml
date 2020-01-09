@@ -19,6 +19,7 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a
           wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/k3c.config -O .config
+          wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/patches/001-glib-gdate-suppress-string-format-literal-warning.patch -P tools/pkg-config/patches
           make defconfig
           make -j$(nproc) || make -j1 V=s
           cd ..
