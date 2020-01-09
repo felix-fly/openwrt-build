@@ -24,8 +24,11 @@ jobs:
           sed -i 's/mtd_part_size=65536/mtd_part_size=6291456/' user/scripts/mtd_storage.sh
           sudo ./clear_tree
           sudo ./build_firmware_modify K2P-5.0
+          cd ..
+          mkdir bin
+          mv /opt/rt-n56u/trunk/images/*.trx bin
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
           name: build
-          path: /opt/rt-n56u/trunk/images
+          path: /opt/bin
