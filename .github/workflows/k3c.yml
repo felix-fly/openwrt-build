@@ -20,6 +20,7 @@ jobs:
           ./scripts/feeds install -a
           wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/k3c.config -O .config
           wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/patches/001-glib-gdate-suppress-string-format-literal-warning.patch -P tools/pkg-config/patches
+          wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/patches/210-openssl-1.1.x-compat.patch -P tools/mkimage/patches
           make defconfig
           make -j$(nproc) || make -j1 V=s
           cd ..
