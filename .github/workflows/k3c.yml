@@ -21,11 +21,10 @@ jobs:
           wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/k3c.config -O .config
           wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/patches/001-glib-gdate-suppress-string-format-literal-warning.patch -P tools/pkg-config/patches
           wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/patches/210-openssl-1.1.x-compat.patch -P tools/mkimage/patches
-          make defconfig
-          make -j$(nproc) || make -j1 V=s
+          make -j$(nproc) V=s
           cd ..
           mkdir bin
-          mv K3C/bin/targets/lantiq/xrx500/*k3c* bin
+          mv K3C/bin/* bin
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
