@@ -24,7 +24,7 @@ jobs:
           make -j$(nproc) V=s
           cd ..
           mkdir bin
-          mv K3C/bin/targets/lantiq bin
+          mv K3C/bin/* bin
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
