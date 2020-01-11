@@ -22,7 +22,7 @@ jobs:
           wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/k2p-padavan.config -O configs/templates/K2P-5.0.config
           sed -i 's/CONFIG_MTD_STORE_PART_SIZ=0x80000/CONFIG_MTD_STORE_PART_SIZ=0x600000/' configs/boards/K2P/kernel-3.4.x-5.0.config
           sed -i 's/CONFIG_IP_NF_MANGLE=m/CONFIG_IP_NF_MANGLE=y/' configs/boards/K2P/kernel-3.4.x-5.0.config
-          sed -i 's/CONFIG_IP6_NF_MANGLE=m/CONFIG_IP6_NF_MANGLE=y/' configs/boards/K2P/kernel-3.4.x-5.0.config
+          sed -i 's/CONFIG_NETFILTER_XT_TARGET_TPROXY=m/CONFIG_NETFILTER_XT_TARGET_TPROXY=y/' configs/boards/K2P/kernel-3.4.x-5.0.config
           sed -i 's/CONFIG_NETFILTER_TPROXY=m/CONFIG_NETFILTER_TPROXY=y/' configs/boards/K2P/kernel-3.4.x-5.0.config
           sed -i 's/mtd_part_size=65536/mtd_part_size=6291456/' user/scripts/mtd_storage.sh
           sudo ./clear_tree
