@@ -1,7 +1,7 @@
 on:
   push:
     branches: 
-      - k2p
+      - k2p-openwrt
 
 jobs:
   build:
