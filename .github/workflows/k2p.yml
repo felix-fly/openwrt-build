@@ -13,7 +13,7 @@ jobs:
           sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler
       - name: build
         run: |
-          git clone https://github.com/coolsnowwolf/lede
+          git clone https://github.com/coolsnowwolf/lede --depth=1
           cd lede
           ./scripts/feeds update -a
           ./scripts/feeds install -a
@@ -26,6 +26,7 @@ jobs:
           mv v2ray_softfloat v2ray
           wget https://raw.githubusercontent.com/felix-fly/v2ray-openwrt/master/files/Makefile
           wget https://raw.githubusercontent.com/felix-fly/v2ray-openwrt/master/files/v2ray.service
+          chmod +x v2ray.service
           cd ../..
           wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/k2p.config -O .config
           make defconfig
