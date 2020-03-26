@@ -18,8 +18,8 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a
           cd package
-          mkdir v2ray
-          cd v2ray
+          mkdir v2ray-mini
+          cd v2ray-mini
           wget https://github.com/felix-fly/v2ray-openwrt/releases/download/4.22.1/v2ray-linux-mipsle.tar.gz -O v2ray.tar.gz
           tar -xzvf v2ray.tar.gz
           rm v2ray.tar.gz v2ray
