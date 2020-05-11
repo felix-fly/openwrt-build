@@ -22,8 +22,7 @@ jobs:
           cd v2ray-mini
           wget https://github.com/felix-fly/v2ray-openwrt/releases/download/4.23.1/v2ray-linux-armv5.tar.gz -O v2ray.tar.gz
           tar -xzvf v2ray.tar.gz
-          rm v2ray.tar.gz v2ray
-          mv v2ray_softfloat v2ray
+          rm v2ray.tar.gz
           wget https://raw.githubusercontent.com/felix-fly/v2ray-openwrt/master/files/Makefile
           wget https://raw.githubusercontent.com/felix-fly/v2ray-openwrt/master/files/v2ray.service
           chmod +x v2ray.service
