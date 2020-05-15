@@ -16,12 +16,14 @@ download_test:
 extra_test:
 	( if [ ! -d $(V2RAY_NAME) ]; then \
 		tar xf $(V2RAY_NAME).tar.gz; \
+		rm v2ray; \
+		mv v2ray_softfloat v2ray; \
 	fi )
 
 clean:
-	rm -rf $(V2RAY_NAME).tar.gz v2ray_softfloat v2ray
+	rm -rf $(V2RAY_NAME).tar.gz
 
 romfs:
 ifeq ($(CONFIG_FIRMWARE_INCLUDE_V2RAY),y)
-	$(ROMFSINST) -p +x $(THISDIR)/v2ray_softfloat /usr/bin/v2ray
+	$(ROMFSINST) -p +x $(THISDIR)/v2ray /usr/bin/v2ray
 endif
