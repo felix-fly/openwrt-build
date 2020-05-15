@@ -3,7 +3,7 @@ V2RAY_VER := 4.23.1
 V2RAY_URL_BASE := https://github.com/felix-fly/v2ray-openwrt/releases/download
 
 V2RAY_NAME := v2ray-linux-mipsle
-V2RAY_URL := $(V2RAY_URL_BASE)/v$(V2RAY_VER)/$(V2RAY_NAME).tar.gz
+V2RAY_URL := $(V2RAY_URL_BASE)/$(V2RAY_VER)/$(V2RAY_NAME).tar.gz
 
 all: download_test extra_test
 	@echo "v2ray build done!"
