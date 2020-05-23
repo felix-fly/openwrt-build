@@ -13,10 +13,20 @@ jobs:
           sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler
       - name: build
         run: |
-          git clone https://github.com/coolsnowwolf/lede
+          git clone https://github.com/coolsnowwolf/lede --depth=1
           cd lede
           ./scripts/feeds update -a
           ./scripts/feeds install -a
+          cd package
+          mkdir v2ray-mini
+          cd v2ray-mini
+          wget https://github.com/felix-fly/v2ray-openwrt/releases/download/4.23.1/v2ray-linux-armv5.tar.gz -O v2ray.tar.gz
+          tar -xzvf v2ray.tar.gz
+          rm v2ray.tar.gz
+          wget https://raw.githubusercontent.com/felix-fly/v2ray-openwrt/master/files/Makefile
+          wget https://raw.githubusercontent.com/felix-fly/v2ray-openwrt/master/files/v2ray.service
+          chmod +x v2ray.service
+          cd ../..
           wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/k3.config -O .config
           make defconfig
           make download -j8
