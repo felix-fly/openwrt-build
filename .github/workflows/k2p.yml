@@ -15,7 +15,6 @@ jobs:
         run: |
           git clone https://github.com/coolsnowwolf/lede --depth=1
           cd lede
-          sed -i 's/#src-git helloworld/src-git helloworld/' feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a
           cd package
