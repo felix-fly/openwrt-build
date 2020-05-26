@@ -1,10 +1,20 @@
-# openwrt-build
+# openwrt/lede/padavan-build
 
-## enabled packages
+## some useful packages
 
-* ca-certificates
 * ipset
 * iptables-mod-tproxy
 * wget
-* theme-material
+* bind-dig
+* lsof
+* ipt2socks
+* trojan
 
+## branches(devices)
+
+* k2p
+* k2p-padavan
+* k2p-openwrt
+* k3
+* k3c
+* raspbian4
