@@ -24,7 +24,7 @@ jobs:
           make -j$(nproc) || make -j1 V=s
           cd ..
           mkdir bin
-          mv lede/bin/targets/bcm27xx/bcm2711/rpi-4* bin
+          mv lede/bin/targets/bcm27xx/bcm2711/* bin
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
