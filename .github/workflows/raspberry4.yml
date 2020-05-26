@@ -1,7 +1,7 @@
 on:
   push:
     branches: 
-      - raspbian4
+      - raspberry4
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
           cd lede
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-          wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/raspbian4.config -O .config
+          wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/raspberry4.config -O .config
           make defconfig
           make download -j8
           find dl -size -1024c -exec rm -f {} \;
