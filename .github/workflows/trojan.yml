@@ -14,10 +14,11 @@ jobs:
       - name: build
         run: |
           mkdir bin
-          wget https://downloads.openwrt.org/snapshots/targets/bcm27xx/bcm2711/openwrt-sdk-bcm27xx-bcm2711_gcc-8.4.0_musl.Linux-x86_64.tar.xz
-          tar xf openwrt-sdk-bcm27xx-bcm2711_gcc-8.4.0_musl.Linux-x86_64.tar.xz
+          #wget https://downloads.openwrt.org/snapshots/targets/bcm27xx/bcm2711/openwrt-sdk-bcm27xx-bcm2711_gcc-8.4.0_musl.Linux-x86_64.tar.xz -O openwrt.tar.zx
+          wget https://downloads.openwrt.org/releases/18.06.8/targets/ramips/mt7621/openwrt-sdk-18.06.8-ramips-mt7621_gcc-7.3.0_musl.Linux-x86_64.tar.xz -O openwrt.tar.zx
+          tar xf openwrt.tar.xz
           git clone https://github.com/trojan-gfw/openwrt-trojan.git
-          cd openwrt-sdk-bcm27xx-bcm2711_gcc-8.4.0_musl.Linux-x86_64
+          cd openwrt
           mv ../openwrt-trojan/openssl1.1 package/
           mv ../openwrt-trojan/trojan package/
           ./scripts/feeds update -a
