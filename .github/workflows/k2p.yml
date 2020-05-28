@@ -31,10 +31,11 @@ jobs:
           make defconfig
           make download -j8
           find dl -size -1024c -exec rm -f {} \;
-          make -j$(nproc) || make -j1 V=s
+          make -j$(nproc) || make -j8 V=s
           cd ..
           mkdir bin
           mv lede/bin/targets/ramips/mt7621/*phicomm_k2p* bin
+          mv lede/bin/targets/ramips/mt7621/*sdk* bin
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
