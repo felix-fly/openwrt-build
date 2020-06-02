@@ -5,6 +5,9 @@
 * ipset
 * iptables-mod-tproxy
 * wget
+* unzip
+* zsh
+* ca-certificates
 * bind-dig
 * lsof
 * ipt2socks
