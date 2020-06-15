@@ -2,16 +2,16 @@
 
 ## some useful packages
 
-* ipset
-* iptables-mod-tproxy
-* wget
-* unzip
-* zsh
-* ca-certificates
-* bind-dig
-* lsof
-* ipt2socks
-* trojan
+* Network > ipset
+* Network > ipt2socks
+* Network > trojan
+* Network > Firewall > iptables-mod-tproxy
+* Network > IP Addresses and Names > bind-dig
+* Utilities > Compression > unzip
+* Utilities > lsof
+* Utilities > Shells > zsh
+* Base system > ca-certificates
+* Network > File Transfer > wget
 
 ## branches(devices)
 
