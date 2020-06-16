@@ -2,14 +2,14 @@
 
 ## some useful packages
 
+* Network > Firewall > iptables-mod-tproxy
+* Network > IP Addresses and Names > bind-dig
 * Network > ipset
 * Network > ipt2socks
 * Network > trojan
-* Network > Firewall > iptables-mod-tproxy
-* Network > IP Addresses and Names > bind-dig
 * Utilities > Compression > unzip
-* Utilities > lsof
 * Utilities > Shells > zsh
+* Utilities > lsof
 * Base system > ca-certificates
 * Network > File Transfer > wget
 
@@ -21,3 +21,4 @@
 * k3
 * k3c
 * raspbian4
+* vbox
