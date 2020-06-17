@@ -1,7 +1,7 @@
 on:
   push:
     branches: 
-      - trojan
+      - ipt2socks
 
 jobs:
   build:
@@ -18,14 +18,12 @@ jobs:
           tar xf openwrt.tar.xz
           rm openwrt.tar.xz
           mv openwrt* openwrt
-          git clone https://github.com/trojan-gfw/openwrt-trojan.git
           cd openwrt
-          mv ../openwrt-trojan/openssl1.1 package/
-          mv ../openwrt-trojan/trojan package/
+          git clone https://github.com/pexcn/openwrt-ipt2socks.git package/ipt2socks
           ./scripts/feeds update -a
           ./scripts/feeds install -a
           make defconfig
-          make package/trojan/compile V=99
+          make package/ipt2socks/compile V=99
           mv bin/packages/* ../bin
       - name: Upload artifact
         uses: actions/upload-artifact@master
