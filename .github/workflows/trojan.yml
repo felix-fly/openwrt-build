@@ -25,7 +25,7 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a
           make defconfig
-          make package/trojan/compile V=99
+          make -j$(nproc) package/trojan/compile V=99
           mv bin/packages/* ../bin
       - name: Upload artifact
         uses: actions/upload-artifact@master
