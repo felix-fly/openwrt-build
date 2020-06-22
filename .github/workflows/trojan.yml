@@ -10,23 +10,29 @@ jobs:
       - name: init
         run: |
           sudo apt-get update
-          sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler
+          sudo apt -y install build-essential cmake libboost-system-dev libboost-program-options-dev libssl-dev default-libmysqlclient-dev
       - name: build
         run: |
           mkdir bin
-          wget https://downloads.openwrt.org/releases/18.06.8/targets/ramips/mt7621/openwrt-sdk-18.06.8-ramips-mt7621_gcc-7.3.0_musl.Linux-x86_64.tar.xz -O openwrt.tar.xz
+
+          # trojan
+          git clone https://github.com/trojan-gfw/trojan.git
+          cd trojan/
+          mkdir build
+          cd build/
+          cmake ..
+
+          # Cross compilation tools
+          # wget https://downloads.openwrt.org/releases/18.06.8/targets/ramips/mt7621/openwrt-sdk-18.06.8-ramips-mt7621_gcc-7.3.0_musl.Linux-x86_64.tar.xz -O openwrt.tar.xz
+          wget https://downloads.openwrt.org/releases/18.06.8/targets/x86/generic/openwrt-sdk-18.06.8-x86-generic_gcc-7.3.0_musl.Linux-x86_64.tar.xz -O openwrt.tar.xz
           tar xf openwrt.tar.xz
           rm openwrt.tar.xz
           mv openwrt* openwrt
-          git clone https://github.com/trojan-gfw/openwrt-trojan.git
-          cd openwrt
-          mv ../openwrt-trojan/openssl1.1 package/
-          mv ../openwrt-trojan/trojan package/
-          ./scripts/feeds update -a
-          ./scripts/feeds install -a
-          make defconfig
-          make -j$(nproc) package/trojan/compile V=99
-          mv bin/packages/* ../bin
+
+          # make CC=openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/bin/mipsel-openwrt-linux-gcc
+          make CC=openwrt/staging_dir/toolchain-i386_pentium4_gcc-7.3.0_musl/bin/i486-openwrt-linux-gcc
+
+          mv trojan ../bin
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
