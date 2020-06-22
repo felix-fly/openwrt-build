@@ -32,7 +32,7 @@ jobs:
           # make CC=openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/bin/mipsel-openwrt-linux-gcc
           make CC=openwrt/staging_dir/toolchain-i386_pentium4_gcc-7.3.0_musl/bin/i486-openwrt-linux-gcc
 
-          mv trojan ../bin
+          mv trojan ../../bin
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
