@@ -34,8 +34,7 @@ jobs:
           make -j$(nproc) || make -j1 V=s
           cd ..
           mkdir bin
-          mv lede/bin/targets/ramips/mt7621/*phicomm_k2p* bin
-          mv lede/bin/targets/ramips/mt7621/*sdk* bin
+          mv lede/bin/targets/ramips/mt7621/* bin
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
