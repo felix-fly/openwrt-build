@@ -2,14 +2,20 @@
 
 ## some useful packages
 
+* Base system > dnsmasq-full > Build with DHCPv6 support.
+* Base system > dropbear > Configuration > Ed25519 support
+* Network > File Transfer > v2ray-mini
+* Network > ipset
+* Network > Project V > [Remove] Compiling with GOPROXY proxy
+
 * Network > Firewall > iptables-mod-tproxy
 * Network > IP Addresses and Names > bind-dig
-* Network > ipset
 * Network > ipt2socks
 * Network > trojan
 * Utilities > Compression > unzip
 * Utilities > Shells > zsh
 * Utilities > lsof
+
 * Base system > ca-certificates
 * Network > File Transfer > wget
 
