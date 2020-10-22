@@ -1,5 +1,5 @@
 THISDIR := $(shell pwd)
-V2RAY_VER := 4.23.1
+V2RAY_VER := 4.31.2
 V2RAY_URL_BASE := https://github.com/felix-fly/v2ray-openwrt/releases/download
 
 V2RAY_NAME := v2ray-linux-mipsle

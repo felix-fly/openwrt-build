@@ -1,7 +1,7 @@
 on:
   push:
     branches: 
-      - trojan
+      - ipt2socks
 
 jobs:
   build:
@@ -14,20 +14,17 @@ jobs:
       - name: build
         run: |
           mkdir bin
-          #wget https://downloads.openwrt.org/snapshots/targets/bcm27xx/bcm2711/openwrt-sdk-bcm27xx-bcm2711_gcc-8.4.0_musl.Linux-x86_64.tar.xz -O openwrt.tar.xz
           wget https://downloads.openwrt.org/releases/18.06.8/targets/ramips/mt7621/openwrt-sdk-18.06.8-ramips-mt7621_gcc-7.3.0_musl.Linux-x86_64.tar.xz -O openwrt.tar.xz
           tar xf openwrt.tar.xz
           rm openwrt.tar.xz
           mv openwrt* openwrt
-          git clone https://github.com/trojan-gfw/openwrt-trojan.git
           cd openwrt
-          mv ../openwrt-trojan/openssl1.1 package/
-          mv ../openwrt-trojan/trojan package/
+          git clone https://github.com/pexcn/openwrt-ipt2socks.git package/ipt2socks
           ./scripts/feeds update -a
           ./scripts/feeds install -a
           make defconfig
-          make package/trojan/compile V=99
-          mv bin/* ../bin
+          make package/ipt2socks/compile V=99
+          mv bin/packages/* ../bin
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
