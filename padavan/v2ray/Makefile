@@ -29,5 +29,5 @@ clean:
 romfs:
 ifeq ($(CONFIG_FIRMWARE_INCLUDE_V2RAY),y)
 	$(ROMFSINST) -p +x $(THISDIR)/v2ray /usr/bin/v2ray
-	$(ROMFSINST) -p $(THISDIR)/cacert.pem /usr/lib/cacert.pem
+	$(ROMFSINST) -p -x $(THISDIR)/cacert.pem /usr/lib/cacert.pem
 endif
