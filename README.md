@@ -5,8 +5,8 @@
 * Base system > dnsmasq-full > Build with DHCPv6 support.
 * Base system > dropbear > Configuration > Ed25519 support
 * Network > File Transfer > v2ray-mini
-* Network > ipset
 * Network > Project V > [Remove] Compiling with GOPROXY proxy
+* Network > ipset
 
 * Network > Firewall > iptables-mod-tproxy
 * Network > IP Addresses and Names > bind-dig
@@ -22,9 +22,9 @@
 ## branches(devices)
 
 * k2p
-* k2p-padavan
 * k2p-openwrt
 * k3
 * k3c
 * raspbian4
+* r2s
 * vbox
