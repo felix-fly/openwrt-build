@@ -34,7 +34,7 @@ jobs:
           make -j$(nproc) || make -j1 V=s
           cd ..
           mkdir bin
-          mv lede/bin/targets/bcm53xx/generic/* bin
+          mv lede/bin/targets/bcm53xx/generic/*phicomm* bin
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
