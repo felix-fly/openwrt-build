@@ -17,16 +17,19 @@ jobs:
           cd lede
           ./scripts/feeds update -a
           ./scripts/feeds install -a
+          
+          # build-in v2ray
           cd package
           mkdir v2ray-mini
           cd v2ray-mini
-          wget https://github.com/felix-fly/v2ray-openwrt/releases/download/4.27.5/v2ray-linux-arm64.tar.gz -O v2ray.tar.gz
+          wget https://github.com/felix-fly/v2ray-openwrt/releases/download/4.31.2/v2ray-linux-arm64.tar.gz -O v2ray.tar.gz
           tar -xzvf v2ray.tar.gz
           rm v2ray.tar.gz
           wget https://raw.githubusercontent.com/felix-fly/v2ray-openwrt/master/files/Makefile
           wget https://raw.githubusercontent.com/felix-fly/v2ray-openwrt/master/files/v2ray.service
           chmod +x v2ray.service
           cd ../..
+
           wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/raspberry4.config -O .config
           make defconfig
           make download -j8
