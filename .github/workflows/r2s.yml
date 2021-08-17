@@ -19,16 +19,16 @@ jobs:
           ./scripts/feeds install -a
 
           # build-in v2ray
-          cd package
-          mkdir v2ray-mini
-          cd v2ray-mini
-          wget https://github.com/felix-fly/v2ray-openwrt/releases/latest/download/v2ray-linux-arm64.tar.gz -O v2ray.tar.gz
-          tar -xzvf v2ray.tar.gz
-          rm v2ray.tar.gz
-          wget https://raw.githubusercontent.com/felix-fly/v2ray-openwrt/master/files/Makefile
-          wget https://raw.githubusercontent.com/felix-fly/v2ray-openwrt/master/files/v2ray.service
-          chmod +x v2ray.service
-          cd ../..
+          # cd package
+          # mkdir v2ray-mini
+          # cd v2ray-mini
+          # wget https://github.com/felix-fly/v2ray-openwrt/releases/latest/download/v2ray-linux-arm64.tar.gz -O v2ray.tar.gz
+          # tar -xzvf v2ray.tar.gz
+          # rm v2ray.tar.gz
+          # wget https://raw.githubusercontent.com/felix-fly/v2ray-openwrt/master/files/Makefile
+          # wget https://raw.githubusercontent.com/felix-fly/v2ray-openwrt/master/files/v2ray.service
+          # chmod +x v2ray.service
+          # cd ../..
 
           wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/r2s.config -O .config
           make defconfig
