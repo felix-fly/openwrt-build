@@ -1,7 +1,7 @@
 on:
   push:
     branches: 
-      - k2p
+      - wky
 
 jobs:
   build:
@@ -17,27 +17,14 @@ jobs:
           cd lede
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-
-          # build-in v2ray
-          # cd package
-          # mkdir v2ray-mini
-          # cd v2ray-mini
-          # wget https://github.com/felix-fly/v2ray-openwrt/releases/download/4.31.2/v2ray-linux-mipsle.tar.gz -O v2ray.tar.gz
-          # tar -xzvf v2ray.tar.gz
-          # rm v2ray.tar.gz v2ray_softfloat
-          # wget https://raw.githubusercontent.com/felix-fly/v2ray-openwrt/master/files/Makefile
-          # wget https://raw.githubusercontent.com/felix-fly/v2ray-openwrt/master/files/v2ray.service
-          # chmod +x v2ray.service
-          # cd ../..
-
-          wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/k2p.config -O .config
+          wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/wky.config -O .config
           make defconfig
           make download -j8
           find dl -size -1024c -exec rm -f {} \;
           make -j$(nproc) || make -j1 V=s
           cd ..
           mkdir bin
-          mv lede/bin/targets/ramips/mt7621/* bin
+          mv lede/bin/targets/* bin
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:

@@ -15,6 +15,7 @@ jobs:
         run: |
           git clone https://github.com/coolsnowwolf/lede --depth=1
           cd lede
+          sed -i 's/#src-link custom/src-link custom/' feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a
           # cd package
