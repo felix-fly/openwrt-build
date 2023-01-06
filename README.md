@@ -15,6 +15,7 @@
 
 ### optional
 
+* Administration > htop
 * Network > File Transfer > v2ray-mini
 * Network > ipt2socks
 * Network > trojan

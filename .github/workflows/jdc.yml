@@ -1,8 +1,8 @@
 on:
   push:
     branches: 
-      - k2p
-
+      - jdc
+  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,19 +18,7 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
-          # build-in v2ray
-          # cd package
-          # mkdir v2ray-mini
-          # cd v2ray-mini
-          # wget https://github.com/felix-fly/v2ray-openwrt/releases/download/4.31.2/v2ray-linux-mipsle.tar.gz -O v2ray.tar.gz
-          # tar -xzvf v2ray.tar.gz
-          # rm v2ray.tar.gz v2ray_softfloat
-          # wget https://raw.githubusercontent.com/felix-fly/v2ray-openwrt/master/files/Makefile
-          # wget https://raw.githubusercontent.com/felix-fly/v2ray-openwrt/master/files/v2ray.service
-          # chmod +x v2ray.service
-          # cd ../..
-
-          wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/k2p.config -O .config
+          wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/jdc.config -O .config
           make defconfig
           make download -j8
           find dl -size -1024c -exec rm -f {} \;
@@ -43,3 +31,4 @@ jobs:
         with:
           name: build
           path: bin
+  
