@@ -22,8 +22,6 @@ jobs:
           wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/ax18.config -O .config
           make defconfig
           make download -j$(nproc)
-          find dl -size -1024c -exec rm -f {} \;
-          make package/feeds/luci/luci-base/compile V=99
           make -j$(nproc) || make -j1 V=s
           cd ..
           mkdir bin
