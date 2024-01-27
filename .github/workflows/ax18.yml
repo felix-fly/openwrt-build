@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: init
         run: |
@@ -14,8 +14,8 @@ jobs:
       - name: build
         run: |
           # git clone https://github.com/felix-fly/openwrt-ax18.git lede --depth=1
-          # git clone https://github.com/sdf8057/ipq6000 lede --depth=1
-          git clone https://github.com/KK2018gh/ipq6000sdf lede --depth=1
+          git clone https://github.com/sdf8057/ipq6000 lede --depth=1
+          # git clone https://github.com/KK2018gh/ipq6000sdf lede --depth=1
           cd lede
           ./scripts/feeds update -a
           ./scripts/feeds install -a
