@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: init
         run: |
@@ -23,7 +23,8 @@ jobs:
           wget https://raw.githubusercontent.com/felix-fly/openwrt-build/master/ax18.config -O .config
           make defconfig
           make download -j$(nproc)
-          make -j$(nproc) || make -j1 V=s
+          # make -j$(nproc)
+          make -j1 V=s
           cd ..
           mkdir bin
           mv lede/bin/targets bin
