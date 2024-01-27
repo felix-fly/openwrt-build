@@ -14,7 +14,7 @@ jobs:
       - name: build
         run: |
           # git clone https://github.com/felix-fly/openwrt-ax18.git lede --depth=1
-          git clone https://github.com/sdf8057/ipq6000.git lede --depth=1
+          git clone https://github.com/coolsnowwolf/lede.git lede --depth=1
           cd lede
           ./scripts/feeds update -a
           ./scripts/feeds install -a
